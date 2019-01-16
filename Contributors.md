@@ -2,12 +2,9 @@
 
 Huge thank you to everyone here, they've made major commits to the wiki and helped make it what it is today!
 
-* @ZedPea
-* @ar-x
-* @Sajo8
-* @holytastyguacamole
-* @SoreGums
+* @2ACoin
+* the TurtleCoin Community
 
 And, of course-
 
-* the TurtleCoin Community
+* the 2ACoin Community

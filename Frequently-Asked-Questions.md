@@ -13,7 +13,7 @@
  A: Yes, of course! We're working on a guide.
 #### Q: I've started mining, how can I view my stats?
 
-A: Visit your pool's homepage. There should be a spot for you to put in your TRTL address, and you can then view your hashrate, pending balance, payouts, and more.
+A: Visit your pool's homepage. There should be a spot for you to put in your ARMS address, and you can then view your hashrate, pending balance, payouts, and more.
 
 #### Q: Why is the hashrate on the pool website different to what is shown in my miner?
 
@@ -93,21 +93,21 @@ Alternatively, you can hop onto the [Discord][Discord_Link] if you're having iss
 
 #### Q: What is the miner executable / why isn't it working?
 
-A: This is a solo miner, which is CPU only. This means to gain any TRTL, you have to find a block by yourself, which unless you have many powerful CPUs, is very unlikely.  
+A: This is a solo miner, which is CPU only. This means to gain any ARMS, you have to find a block by yourself, which unless you have many powerful CPUs, is very unlikely.  
   We strongly recommend using a pool, and a miner such as xmr-stak or xmrig.
   Nevertheless, if you want to try it out, open a command prompt in the same directory, and run
 
 ```
-miner.exe --address TRTL...
+miner.exe --address ARMS...
 ```
 
- replacing `TRTL...` with your full TRTL address.
+ replacing `ARMS...` with your full ARMS address.
 
-  You need to have `TurtleCoind.exe` open and synced to use this miner, unlike conventional miners, where the pool hosts the daemon.
+  You need to have `2ACoind.exe` open and synced to use this miner, unlike conventional miners, where the pool hosts the daemon.
 
-#### Q: Is there a calculator to see how much TRTL I'll mine per day?
+#### Q: Is there a calculator to see how much ARMS I'll mine per day?
 
-A: Your pool's homepage should have one - enter your hashrate and it'll give an estimate of how much TRTL you'll mine per day.  
+A: Your pool's homepage should have one - enter your hashrate and it'll give an estimate of how much ARMS you'll mine per day.  
 If there isn't, you can check one [here](https://turtle.land/#pools).
 
 ### XMR-Stak Issues
@@ -140,7 +140,7 @@ Open this up, and check that it looks *similar* to this:
 
     ```
     {"pool_address" : "eu.turtlepool.space:3333",
-     "wallet_address" : "TRTLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4w",
+     "wallet_address" : "gunsv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4w",
      "pool_password" : "x",
      "use_nicehash" : false,
      "use_tls" : false,
@@ -149,14 +149,14 @@ Open this up, and check that it looks *similar* to this:
 
      ```
 
-  Your wallet address is the address starting with `TRTL`, not your wallet filename.  
+  Your wallet address is the address starting with `guns`, not your wallet filename.  
   This error can also occur if the pool is having issues - try another pool and see if the error continues.
 
 Some users have experienced issues with their firewall or antivirus as well however, so perhaps try disabling these if you are experiencing this issue.
 
 #### Q: Can I lower the 2% fee taken by XMR-Stak?
 
-A: This is possible, however please note that these developers are independent from the TurtleCoin project and are doing some great work, so I would suggest leaving it as is.  
+A: This is possible, however please note that these developers are independent from the 2ACoin project and are doing some great work, so I would suggest leaving it as is.  
   If you do wish to change/remove the dev fee, you will have to compile XMR-Stak yourself, they have instructions to do this on their [GitHub](https://github.com/fireice-uk/xmr-stak/blob/master/doc/compile.md), or you can check out the [Linux guide](XMR-Stak-Linux-Guide#ubuntu-16-04)  
   Once you have downloaded the code, you need to change the file `donate-level.hpp` in the `xmr-stak/xmr-stak/` folder.
 
@@ -182,9 +182,9 @@ A: Try installing this: <https://www.microsoft.com/en-us/download/details.aspx?i
 
 A: Try installing this: <https://go.microsoft.com/fwlink/?LinkId=746572>
 
-## TurtleCoind / ZedWallet Issues<a name="tcoind-zedwallet-issues"></a>
+## 2ACoind / ZedWallet Issues<a name="tcoind-zedwallet-issues"></a>
 
-#### Q: I'm seeing an error in TurtleCoind `Proof of work too weak for block...` and the syncing stopped.
+#### Q: I'm seeing an error in 2ACoind `Proof of work too weak for block...` and the syncing stopped.
 
 A: This occurs because of the blockchain forking, generally when one mining pool has a very large hashrate. T
   This can be fixed by re-syncing the correct blockchain from scratch. See the question below.
@@ -200,82 +200,82 @@ A: Re-sync your daemon from scratch(see below question) [using checkpoints](Usin
 
 #### Q: How can I re-sync the blockchain?
 
-A: Close any TurtleCoin-related software, then go to `%APPDATA%`, and delete the `TurtleCoin` folder.
-  Reopen TurtleCoind/GUI and let it re-sync.
+A: Close any 2ACoin-related software, then go to `%APPDATA%`, and delete the `2ACoin` folder.
+  Reopen 2ACoind/GUI and let it re-sync.
 
 Alternatively, check [this guide](Using-checkpoints) for instructions on how to use checkpoints for a quicker sync.
 
-#### Q: When I open TurtleCoind on a Mac, I get an error `Illegal instruction: 4`. How can I fix it?
+#### Q: When I open 2ACoind on a Mac, I get an error `Illegal instruction: 4`. How can I fix it?
 
 A: This is a known issue with older macs or un-updated macs.
     Try entering this into a terminal -
 
   ```
-  curl -sL "https://raw.githubusercontent.com/turtlecoin/turtlecoin/master/scripts/multi_installer.sh" | bash
+  curl -sL "https://raw.githubusercontent.com/2ACoin/2ACoin/master/scripts/multi_installer.sh" | bash
   ```
 
   This automated script should compile the software itself, and place the binaries in ./src once done.  
-  See <https://github.com/turtlecoin/turtlecoin#ubuntu-1604-and-macos-1010> for more info.  
-  If this fails, try instead following the instructions to compile manually - <https://github.com/turtlecoin/turtlecoin#apple>
+  See <https://github.com/2ACoin/2ACoin#ubuntu-1604-and-macos-1010> for more info.  
+  If this fails, try instead following the instructions to compile manually - <https://github.com/2ACoin/2ACoin#apple>
 
-#### Q: I've opened the wallet, and I'm getting lots of red messages like "It looks like TurtleCoind isn't open!"...
+#### Q: I've opened the wallet, and I'm getting lots of red messages like "It looks like 2ACoind isn't open!"...
 
   ```
-  It looks like TurtleCoind isn't open!
+  It looks like 2ACoind isn't open!
 
-  Ensure TurtleCoind is open and has finished initializing.
-  If it's still not working, try restarting TurtleCoind. The daemon sometimes gets
+  Ensure 2ACoind is open and has finished initializing.
+  If it's still not working, try restarting 2ACoind. The daemon sometimes gets
   stuck.
-  Alternatively, perhaps TurtleCoind can't communicate with any peers.
+  Alternatively, perhaps 2ACoind can't communicate with any peers.
 
   The wallet can't function until it can communicate with the network.
   ````
 
-A: You need to also open up `TurtleCoind.exe` and let it sync. TurtleCoind is your connection to the network, and needs to be open and synced whenever you want to use your wallet.
+A: You need to also open up `2ACoind.exe` and let it sync. 2ACoind is your connection to the network, and needs to be open and synced whenever you want to use your wallet.
 
-#### Q: I've opened the wallet, and I'm getting lots of messages like "Your TurtleCoind isn't fully synced yet!"..
+#### Q: I've opened the wallet, and I'm getting lots of messages like "Your 2ACoind isn't fully synced yet!"..
 
 ```
 Until you are fully synced, you won't be able to send transactions, and your balance may be missing or incorrect!
 ```
 
-  A: Your daemon hasn't finished syncing yet. Keep zedwallet open, and wait until you are 0 days behind the current block, and for the daemon to print out a green message saying `Successfully synchronized with the TurtleCoin Network.`  
+  A: Your daemon hasn't finished syncing yet. Keep zedwallet open, and wait until you are 0 days behind the current block, and for the daemon to print out a green message saying `Successfully synchronized with the 2ACoin Network.`  
   You can also type `status` in the daemon and press enter to see the current height it's at.
 
 #### Q: I think I should have more money in my balance than it is showing, what should I do?
 
     A: Re-sync your daemon from scratch(see [here](#q-how-can-i-re-sync-the-blockchain)) faster [using checkpoints](Using-checkpoints).  
-    If it still doesn't work, then [update](latest.turtlecoin.lol) your wallet!
+    If it still doesn't work, then [update](latest.2ACoin.org) your wallet!
 
 #### Q: How do I backup my wallet?
 
   A: Open zedwallet and type `backup`.  
   Save the view and spend key somewhere safe, and you can use them to reimport your wallet if you lose it.
 
-#### Q: How do I send TRTL?
+#### Q: How do I send ARMS?
 
-  A: You can check [this out](Using-ZedWallet#tx-trtl) for steps on how to send TRTL to someone.
+  A: You can check [this out](Using-ZedWallet#tx-arms) for steps on how to send ARMS to someone.
 
 #### Q: How do I send money to exchanges / use payment ID?
 
-  A: You can check [this out](Using-ZedWallet#tx-trtl-p-id) for steps on how to send TRTL with the payment ID.
+  A: You can check [this out](Using-ZedWallet#tx-arms-p-id) for steps on how to send ARMS with the payment ID.
 
 #### Q: What is mixin?
 
   A: Mixin is how many times your transaction is "mixed" with others for obfuscation and privacy. This used to be dynamic in that the user could choose a number equal to or greater than zero. However this property is now set and enforced at the network layer.  
-  The TRTL Network is a privacy focused blockchain, and keen to ease adoption for everyone, like how two decimals are used.  
+  The ARMS Network is a privacy focused blockchain, and keen to ease adoption for everyone, like how two decimals are used.  
   Removing this user configurable option and setting it at the network layer allows for the network to balance this privacy aspect automatically so people can focus on the important parts.
 
    As of block 800,000 the network mixin is set to three (3).
 
 #### Q: How can I view my balance?
 
-  A: If `TurtleCoind.exe` is fully synced, in `zedwallet.exe`, simply type `balance`.
+  A: If `2ACoind.exe` is fully synced, in `zedwallet.exe`, simply type `balance`.
 
 
-#### Q: How long does it take to sync TurtleCoind.exe?
+#### Q: How long does it take to sync 2ACoind.exe?
 
-  A: Currently it takes a couple of hours. This number will increase as more people use TRTL and the blockchain gets larger. If you'd like to speed up the process, check out the question below.
+  A: Currently it takes a couple of hours. This number will increase as more people use ARMS and the blockchain gets larger. If you'd like to speed up the process, check out the question below.
 
 #### Q: Can I speed up the syncing of the blockchain?
 
@@ -301,10 +301,10 @@ Until you are fully synced, you won't be able to send transactions, and your bal
 
 A: Yes, there are currently 2 GUI wallets actively in development along with some mobile wallets too. However, they may not be ready for full use yet, and may not work on your operating system.
 
-* [Nest Wallet](https://github.com/turtlecoin/turtle-wallet-go)
+* [Nest Wallet](https://github.com/2acoin/2acoin-wallet-go)
 * [Shellnet Web Wallet](https://shellnet.pw)
-* [T-Scripta Wallet](https://github.com/turtlecoin/turtle-wallet-tscripta)
-* [Electron Wallet](https://github.com/turtlecoin/turtle-wallet-electron)
+* [T-Scripta Wallet](https://github.com/2acoin/2acoin-wallet-tscripta)
+* [Electron Wallet](https://github.com/2acoin/2acoin-wallet-electron)
 
 To view a guide on using them, you can go [here](Making-a-Wallet/#graphical-wallet-gui-wallet)
 
@@ -320,7 +320,7 @@ To view a guide on using them, you can go [here](Making-a-Wallet/#graphical-wall
 
   You see above/elsewhere wallet files are being created via the wallet software, these files might be stored unencrypted, if unencrypted then the keys can be read by malicious software and balance's of those wallets transferred.
 
-  Thus to protect against that scenario you could transfer any TRTL balance to one of these cold storage addresses. Please remember to keep secure/secret backups of your keys. If you lose the keys you lose any balance that was transferred to that wallet.
+  Thus to protect against that scenario you could transfer any ARMS balance to one of these cold storage addresses. Please remember to keep secure/secret backups of your keys. If you lose the keys you lose any balance that was transferred to that wallet.
 
 #### Q: Can I make a paper wallet?
 
@@ -332,29 +332,25 @@ A: Yes, you can view the guide [here](Making-a-Paper-Wallet)
 
 #### Q: Can I view the balance of my wallet online?
 
-  A: Due to TurtleCoin being a cryptonote-based coin(private), this is not possible.
+  A: Due to 2ACoin being a cryptonote-based coin(private), this is not possible.
 
   It should be possible in the future to allow users to give away just their Private View Key to view transactions, but this hasn't been implemented by anyone so far, and would allow that website to see every transaction that you make.
 
 ## Other
-#### Q: Why does TRTL have such a high amount of tokens/small amount of decimal places?
+#### Q: How can I get some ARMS?
 
-  A: Read a great post about the justification for it [here](https://medium.com/@turtlecoin/one-trillion-turtles-coin-supply-and-unit-economics-5bfbea0aa1f1).
-
-#### Q: How can I get some TRTL?
-
-  A: There are multiple ways to acquire TRTL, for example:
+  A: There are multiple ways to acquire ARMS, for example:
 
   * Mining - see [here](Mining)
-  * Buying - TRTL is currently available on these exchanges: [TradeOgre](https://tradeogre.com/exchange/BTC-TRTL) and [TradeSatoshi](https://tradesatoshi.com/Exchange/?market=TRTL_BTC)
-  * Bounties - Bounties for developing TRTL software, spreading the word of TRTL, and many other things are often posted in the #bounties channel on [discord][Discord_Link]. Check the pinned messages for current bounties.
+  * Buying - ARMS is currently available on these exchanges: [TradeOgre](https://tradeogre.com/exchange/BTC-ARMS) and [TradeSatoshi](https://tradesatoshi.com/Exchange/?market=ARMS_BTC)
+  * Bounties - Bounties for developing ARMS software, spreading the word of ARMS, and many other things are often posted in the #bounties channel on [discord][Discord_Link]. Check the pinned messages for current bounties.
   * Tips - People will sometimes tip each other, especially if you make spicy memes in the #memes channel
   * Rain - Good active Turtles get rained on, check out what the [RainBorg](RainBorg-Wat-Dat) is to see how to use it.
   * Faucet - Head over to the faucets-
-    * [madk's faucet](https://faucet.trtl.me/) - 10 TRTL, thrice a day
-    * [polar-it's faucet](https://turtlecoin-faucet.xhub.cloud/) - 25 TRTL, every 30 minutes  
-    and enter your TRTL address.  
-    The amount you can receive is limited to share the TRTL for all. Thanks to @madk and @polar-it for creating this.
+    * [madk's faucet](https://faucet.ARMS.me/) - 10 ARMS, thrice a day
+    * [polar-it's faucet](https://2ACoin-faucet.xhub.cloud/) - 25 ARMS, every 30 minutes  
+    and enter your ARMS address.  
+    The amount you can receive is limited to share the ARMS for all. Thanks to @madk and @polar-it for creating this.
 
 #### Q: Are there any light wallets / mobile wallets?
 
@@ -366,20 +362,17 @@ A: Yes, you can view the guide [here](Making-a-Paper-Wallet)
 
 #### Q: How do I register my wallet on Discord?
 
-  A: You can check out this guide [here](Using-trtlbot-plus-plus#registering-your-wallet).
+  A: You can check out this guide [here](Using-armsbot-plus-plus#registering-your-wallet).
 
 #### Q: Where is the blockchain stored?
 
-  A: On Windows, it is in `%AppData%/turtlecoin`. On Mac and Linux, it is in `~/.turtlecoin`.
+  A: On Windows, it is in `%AppData%/2ACoin`. On Mac and Linux, it is in `~/.2ACoin`.
 
 #### Q: Is there a blockchain explorer?
 
   A: Yes, there are currently a few-
 
-* https://turtle.land
-* https://blocks.turtle.link
-* ~~https://turtle-coin.com~~
-* ~~https://explorer.trtlpwr.cc~~
+* https://explorer.2acoin.org
 
 #### Q: How do I make sure a pool isn't forked?
 
@@ -389,4 +382,4 @@ You can ask someone in the [Discord][Discord_Link] with a coloured name(aside fr
 
   A: [Join the Discord][Discord_Link], and come to the `#help` channel, we'll try and fix any issues.
 
-[Discord_Link]:http://chat.turtlecoin.lol/
+[Discord_Link]:http://chat.2ACoin.org/
