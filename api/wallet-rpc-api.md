@@ -1,6 +1,8 @@
 # Wallet RPC API
 
-TurtleCoin RPC Wallet is a HTTP server which provides JSON 2.0 RPC interface for TurtleCoin payment operations and address management.
+2ACoin RPC Wallet is a HTTP server which provides JSON 2.0 RPC interface for 2ACoin payment operations and address management.
+
+2ACoin utilizes the bindings built and maintained by the TurtleCoin community.  
 
 Currently we support the following official client bindings:
 
@@ -30,7 +32,7 @@ go get github.com/turtlecoin/turtlecoin-rpc-go
 > API endpoint example
 
 ```
-http://localhost:8070/json_rpc
+http://localhost:19760/json_rpc
 ```
 
 > Configuration and instantiation
@@ -40,16 +42,16 @@ const TurtleService = require('turtlecoin-rpc').TurtleService
 
 const service = new TurtleService({
   host: '127.0.0.1', // ip address or hostname of the turtle-service host
-  port: 8070, // what port is turtle-service running on
+  port: 19760, // what port is turtle-service running on
   timeout: 2000, // request timeout
   ssl: false, // whether we need to connect using SSL/TLS
   rpcPassword: 'changeme', // must be set to the password used to run turtle-service
 
   // RPC API default values
   defaultMixin: false, // the default mixin to use for transactions, the default setting is false which means we don't have a default value
-  defaultFee: 0.1, // the default transaction fee for transactions
+  defaultFee: 0.0005, // the default transaction fee for transactions
   defaultBlockCount: 1, // the default number of blocks when blockCount is required
-  decimalDivisor: 100, // Currency has many decimal places?
+  decimalDivisor: 1000000, // Currency has many decimal places?
   defaultFirstBlockIndex: 1, // the default first block index we will use when it is required
   defaultUnlockTime: 0, // the default unlockTime for transactions
   defaultFusionThreshold: 10000000, // the default fusionThreshold for fusion transactions
@@ -62,7 +64,7 @@ use TurtleCoin\TurtleService;
 
 $config = [
     'rpcHost'     => 'http://localhost',
-    'rpcPort'     => 8070,
+    'rpcPort'     => 19760,
     'rpcPassword' => 'passw0rd',
 ];
 
@@ -73,7 +75,7 @@ $turtleService = new TurtleService($config);
 from turtlecoin import Walletd
 
 rpc_host = 'localhost'
-rpc_port = 8070
+rpc_port = 19760
 rpc_password = 'passw0rd'
 
 walletd = Walletd(rpc_password, rpc_host, rpc_port)
@@ -86,7 +88,7 @@ import (
 )
 
 rpcHost := "localhost"
-rpcPort := 8070
+rpcPort := 19760
 rpcPassword := "passw0rd"
 
 service := trpc.Walletd{
@@ -101,15 +103,15 @@ To make a JSON RPC request to your TurtleCoin RPC Wallet you should use a POST r
 
 Parameter            | Description
 -------------------- | ------------------------------------------------------------
-`<service address>`  | IP of TurtleCoin RPC Wallet, if RPC Wallet is located on local machine it is either 127.0.0.1 or localhost
-`<service port>`     | TurtleCoin RPC Wallet port, by default it is bound to 8070 port, but it can be manually bound to any port you want
+`<service address>`  | IP of 2ACoin RPC Wallet, if RPC Wallet is located on local machine it is either 127.0.0.1 or localhost
+`<service port>`     | 2ACoin RPC Wallet port, by default it is bound to 19760 port, but it can be manually bound to any port you want
 
 
 
 ## reset
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"reset","params":{"scanHeight":100000}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"reset","params":{"scanHeight":100000}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -178,7 +180,7 @@ No output in case of success.
 ## save
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"save","params":{}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"save","params":{}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -229,7 +231,7 @@ No output in case of success.
 ## getViewKey
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getViewKey","params":{}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getViewKey","params":{}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -287,12 +289,12 @@ viewSecretKey    | Private view key | string
 ## getSpendKeys
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getSpendKeys","params":{"address":"TRTLxxxx..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getSpendKeys","params":{"address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.getSpendKeys({
-  address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  address: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
 }).then((result) => {
   // do something
 }).catch((error) => {
@@ -302,19 +304,19 @@ service.getSpendKeys({
 
 ```php
 <?php
-$address = 'TRTLxxxx...';
+$address = 'gunsxxxx...';
 $response = $turtleService->getSpendKeys($address);
 echo $response;
 ```
 
 ```python
-address = 'TRTLxxxx...'
+address = 'gunsxxxx...'
 response = walletd.get_spend_keys(address)
 print(response)
 ```
 
 ```go
-address := "TRTLxxxx..."
+address := "gunsxxxx..."
 response, err := service.GetSpendKeys(address)
 if err != nil {
   fmt.Println(err)
@@ -356,12 +358,12 @@ spendPublicKey    | Public spend key     | string
 ## getMnemonicSeed
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getMnemonicSeed","params":{"address":"TRTLxxxx..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getMnemonicSeed","params":{"address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.getMnemonicSeed({
-  address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  address: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
 }).then((result) => {
   // do something
 }).catch((error) => {
@@ -371,19 +373,19 @@ service.getMnemonicSeed({
 
 ```php
 <?php
-$address = 'TRTLxxxx...';
+$address = 'gunsxxxx...';
 $response = $turtleService->getMnemonicSeed($address);
 echo $response;
 ```
 
 ```python
-address = 'TRTLxxxx...'
+address = 'gunsxxxx...'
 response = walletd.get_mnemonic_seed(address)
 print(response)
 ```
 
 ```go
-address := "TRTLxxxx..."
+address := "gunsxxxx..."
 response, err := service.GetMnemonicSeed(address)
 if err != nil {
   fmt.Println(err)
@@ -399,7 +401,7 @@ if err != nil {
   "id":1,
   "jsonrpc":"2.0",
   "result":{
-    "mnemonicSeed":"turtles are cool..."
+    "mnemonicSeed":"arms are cool..."
   }
 }
 ```
@@ -427,7 +429,7 @@ mnemonicSeed      | Mnemonic seed        | string
 ## getStatus
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getStatus","params":{}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getStatus","params":{}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -491,7 +493,7 @@ peerCount        | Connected peers number	                                      
 ## getAddresses
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getAddresses","params":{}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getAddresses","params":{}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -530,8 +532,8 @@ if err != nil {
   "jsonrpc":"2.0",
   "result":{
     "addresses":[
-      "TRTLxxxx...",
-      "TRTLxxxx..."
+      "gunsxxxx...",
+      "gunsxxxx..."
     ]
   }
 }
@@ -552,7 +554,7 @@ addresses	      | Array of strings, where each string is an address	  | array
 ## createAddress
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createAddress","params":{}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createAddress","params":{}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -601,7 +603,7 @@ if err != nil {
   "id":1,
   "jsonrpc":"2.0",
   "result":{
-    "address":"TRTLxxxx..."
+    "address":"gunsxxxx..."
   }
 }
 ```
@@ -622,12 +624,12 @@ scanHeight               | No           | The height to begin scanning for trans
 ## deleteAddress
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteAddress","params":{"address":"TRTLxxxx..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteAddress","params":{"address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.deleteAddress({
-  address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  address: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
 }).then((result) => {
   // do something
 })
@@ -635,13 +637,13 @@ service.deleteAddress({
 
 ```php
 <?php
-$address = 'TRTLxxxx...';
+$address = 'gunsxxxx...';
 $response = $turtleService->deleteAddress($address);
 echo $response;
 ```
 
 ```python
-address = 'TRTLxxxx...'
+address = 'gunsxxxx...'
 response = walletd.delete_address(address)
 
 # If the delete was successful, response will be True
@@ -649,7 +651,7 @@ print(response)
 ```
 
 ```go
-address := "TRTLxxxx..."
+address := "gunsxxxx..."
 response, err := service.DeleteAddress(address)
 if err != nil {
   fmt.Println(err)
@@ -685,13 +687,13 @@ In case of success returns an empty JSON object.
 ## getBalance
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBalance","params":{"address":"TRTLxxxx..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBalance","params":{"address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 // Address optional
 service.getBalance({
-  address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  address: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
 }).then((result) => {
   // do something
 })
@@ -699,19 +701,19 @@ service.getBalance({
 
 ```php
 <?php
-$address = 'TRTLxxxx...';
+$address = 'gunsxxxx...';
 $response = $turtleService->getBalance($address);
 echo $response;
 ```
 
 ```python
-address = 'TRTLxxxx...'
+address = 'gunsxxxx...'
 response = walletd.get_balance(address)
 print(response)
 ```
 
 ```go
-address := "TRTLxxxx..."
+address := "gunsxxxx..."
 response, err := service.GetBalance(address)
 if err != nil {
   fmt.Println(err)
@@ -750,7 +752,7 @@ lockedAmount          | Locked amount of the specified address in shells      | 
 
 <aside class="notice">
   <div>If address is not specified, <code>getBalance()</code> returns a cumulative balance of all RPC Wallet's addresses.
-  Also note, balances are expressed in shells, so a balance of 10000 is equal to 100.00 TRTL.</div>
+  Also note, balances are expressed in shells, so a balance of 10000 is equal to 100.00 guns.</div>
 </aside>
 
 
@@ -758,7 +760,7 @@ lockedAmount          | Locked amount of the specified address in shells      | 
 ## getBlockHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBlockHashes","params":{"firstBlockIndex":0,"blockCount":3}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBlockHashes","params":{"firstBlockIndex":0,"blockCount":3}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -832,14 +834,14 @@ blockHashes		      | Array of strings, where each element is a block hash	| arra
 ## getTransactionHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactionHashes","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactionHashes","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.getTransactionHashes({
   addresses: [
-    "TRTLux9QBmzCYEGgdWXHEQCAm6vY9vZHkbGmx8ev5LxhYk8N71Pp7PWFYL9CHxpWph2wCPZcJ6tkPfUxVZcUN8xmYsSDJZ25i9n",
-    "TRTLv1mPerM2ckUuNvxrkzDE7QKd9PFVUXYbVfbvx8YxB5BYEdSqQvUFYL9CHxpWph2wCPZcJ6tkPfUxVZcUN8xmYsSDJbQMVgF"
+    "gunsux9QBmzCYEGgdWXHEQCAm6vY9vZHkbGmx8ev5LxhYk8N71Pp7PWFYL9CHxpWph2wCPZcJ6tkPfUxVZcUN8xmYsSDJZ25i9n",
+    "gunsv1mPerM2ckUuNvxrkzDE7QKd9PFVUXYbVfbvx8YxB5BYEdSqQvUFYL9CHxpWph2wCPZcJ6tkPfUxVZcUN8xmYsSDJbQMVgF"
   ],
   blockHash: 'f98d6bbe80a81b3aa0aebd004096e2223524f58f347a1f21be122450f244b948',
   blockCount: 1
@@ -874,7 +876,7 @@ print(response)
 ```
 
 ```go
-addresses := []string{"TRTLxxxx..."}
+addresses := []string{"gunsxxxx..."}
 blockHash := ""
 firstBlockIndex := 0
 blockCount := 3
@@ -939,14 +941,14 @@ items	   | **Array of**                                        |	               
 ## getTransactions
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactions","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactions","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.getTransactions({
   addresses: [
-    "TRTLux9QBmzCYEGgdWXHEQCAm6vY9vZHkbGmx8ev5LxhYk8N71Pp7PWFYL9CHxpWph2wCPZcJ6tkPfUxVZcUN8xmYsSDJZ25i9n",
-    "TRTLv1mPerM2ckUuNvxrkzDE7QKd9PFVUXYbVfbvx8YxB5BYEdSqQvUFYL9CHxpWph2wCPZcJ6tkPfUxVZcUN8xmYsSDJbQMVgF"
+    "gunsux9QBmzCYEGgdWXHEQCAm6vY9vZHkbGmx8ev5LxhYk8N71Pp7PWFYL9CHxpWph2wCPZcJ6tkPfUxVZcUN8xmYsSDJZ25i9n",
+    "gunsv1mPerM2ckUuNvxrkzDE7QKd9PFVUXYbVfbvx8YxB5BYEdSqQvUFYL9CHxpWph2wCPZcJ6tkPfUxVZcUN8xmYsSDJbQMVgF"
   ],
   firstBlockIndex: 469419,
   blockCount: 1
@@ -981,7 +983,7 @@ print(response)
 ```
 
 ```go
-addresses := []string{"TRTLxxxx..."}
+addresses := []string{"gunsxxxx..."}
 blockHash := ""
 firstBlockIndex := 0
 blockCount := 3
@@ -1016,7 +1018,7 @@ if err != nil {
             "timestamp":1526458339,
             "transactionHash":"529ea...",
             "transfers":[
-              {"address":"TRTLxxxx...","amount":10000,"type":0},
+              {"address":"gunsxxxx...","amount":10000,"type":0},
               {"address":"","amount":-100000,"type":0},
               {"address":"","amount":89990,"type":0}
             ],
@@ -1038,7 +1040,7 @@ if err != nil {
             "timestamp":1526460243,
             "transactionHash":"2e709...",
             "transfers":[
-              {"address":"TRTLxxxx...","amount":5000,"type":0},
+              {"address":"gunsxxxx...","amount":5000,"type":0},
               {"address":"","amount":-8000,"type":0},
               {"address":"","amount":2990,"type":0}
             ],
@@ -1096,12 +1098,12 @@ transfers           | Array of address (string), amount (int)                   
 ## getUnconfirmedTransactionHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getUnconfirmedTransactionHashes","params":{}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getUnconfirmedTransactionHashes","params":{}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.getUnconfirmedTransactionHashes({
-  address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  address: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
 }).then((result) => {
   // do something
 })
@@ -1121,7 +1123,7 @@ print(response)
 ```
 
 ```go
-addresses := []string{"TRTLxxxx..."}
+addresses := []string{"gunsxxxx..."}
 response, err := service.GetUnconfirmedTransactionHashes(addresses)
 if err != nil {
 		fmt.Println(err)
@@ -1169,7 +1171,7 @@ transactionHashes      | Array of strings, where each string is a hash of an unc
 ## getTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransaction","params":{"transactionHash":"55a23..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransaction","params":{"transactionHash":"55a23..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -1221,7 +1223,7 @@ if err != nil {
       "timestamp":1526477499,
       "transactionHash":"55a23...",
       "transfers":[
-        {"address":"TRTLxxxx...","amount":5000,"type":0},
+        {"address":"gunsxxxx...","amount":5000,"type":0},
         {"address":"","amount":-10000,"type":0},
         {"address":"","amount":4990,"type":0}
       ],
@@ -1267,13 +1269,13 @@ transfers           | Array of addresses (string), amount (int)                 
 ## sendTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendTransaction","params":{"transfers":[{"address":"TRTLxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"TRTLyyyy..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendTransaction","params":{"transfers":[{"address":"gunsxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"gunsyyyy..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.sendTransaction({
   transfers: [
-    service.newTransfer('TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ', 1000000)
+    service.newTransfer('gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ', 1000000)
   ],
   fee: 0.1
 }).then((result) => {
@@ -1289,10 +1291,10 @@ $addresses = null;
 $unlockTime = null;
 $extra = null;
 $paymentId = null;
-$changeAddress = 'TRTLyyyy...';
+$changeAddress = 'gunsyyyy...';
 
 $transfers = [
-    ["address" => "TRTLxxxx...", "amount"  => 5000],
+    ["address" => "gunsxxxx...", "amount"  => 5000],
 ];
 
 $response = $turtleService->sendTransaction(
@@ -1309,10 +1311,10 @@ addresses = []
 unlock_time = 0
 extra = ''
 payment_id = ''
-change_address = 'TRTLyyyy...'
+change_address = 'gunsyyyy...'
 
 transfers = [
-    {"address" : "TRTLxxxx...", "amount" : 5000},
+    {"address" : "gunsxxxx...", "amount" : 5000},
 ]
 
 response = walletd.send_transaction(
@@ -1322,16 +1324,16 @@ print(response)
 ```
 
 ```go
-addresses := []string{"TRTLyyyy..."} // can be empty
+addresses := []string{"gunsyyyy..."} // can be empty
 unlockTime := 0
 extra := ""
 paymentID := ""
 fee := 10
-changeAddress := "TRTLyyyy..."
+changeAddress := "gunsyyyy..."
 
 transfers := []map[string]interface{}{
   {
-    "address" : "TRTLxxxx...",
+    "address" : "gunsxxxx...",
     "amount" : 5000,
   },
 }
@@ -1364,7 +1366,7 @@ Argument        | Mandatory     | Description                                   
 --------------- | ------------- | ---------------------------------------------------------------------------------------- | -------
 addresses       | No            | Array of strings, where each string is an address to take the funds from                 | array
 transfers       | Yes           | Array of objects, address: (string address), amount: (int amount)                        | array
-fee             | Yes           | Transaction fee. Minimal fee in TurtleCoin network is 0.10 TRTL. As with other amounts use whole units, 1 TRTL = 100 units, so 0.1 TRTL = 10 units | int
+fee             | Yes           | Transaction fee. Minimal fee in TurtleCoin network is 0.10 guns. As with other amounts use whole units, 1 guns = 100 units, so 0.1 guns = 10 units | int
 unlockTime      | No            | The block height at which the transaction will be unlocked for spending.                 | int
 anonymity       | Yes           | Privacy (mixin) level from block 800,000 three (3)                                       | int
 extra           | No            | String of variable length. Can contain A-Z, 0-9 characters.                              | string
@@ -1386,13 +1388,13 @@ transactionHash	      | Hash of the sent transaction		| string
 ## createDelayedTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createDelayedTransaction","params":{"transfers":[{"address":"TRTLxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"TRTLyyyy..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createDelayedTransaction","params":{"transfers":[{"address":"gunsxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"gunsyyyy..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.createDelayedTransaction({
   transfers: [
-    service.newTransfer('TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ', 1000000)
+    service.newTransfer('gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ', 1000000)
   ],
   fee: 0.1
 }).then((result) => {
@@ -1408,10 +1410,10 @@ $addresses = null;
 $unlockTime = null;
 $extra = null;
 $paymentId = null;
-$changeAddress = 'TRTLyyyy...';
+$changeAddress = 'gunsyyyy...';
 
 $transfers = [
-    ["address" => "TRTLxxxx...", "amount"  => 5000],
+    ["address" => "gunsxxxx...", "amount"  => 5000],
 ];
 
 $response = $turtleService->createDelayedTransaction(
@@ -1428,10 +1430,10 @@ addresses = []
 unlock_time = 0
 extra = ''
 payment_id = ''
-change_address = 'TRTLyyyy...'
+change_address = 'gunsyyyy...'
 
 transfers = [
-    {"address" : "TRTLxxxx...", "amount" : 5000},
+    {"address" : "gunsxxxx...", "amount" : 5000},
 ]
 
 response = walletd.create_delayed_transaction(
@@ -1441,16 +1443,16 @@ print(response)
 ```
 
 ```go
-addresses := []string{"TRTLyyyy..."} // can be empty
+addresses := []string{"gunsyyyy..."} // can be empty
 unlockTime := 0
 extra := ""
 paymentID := ""
 fee := 10
-changeAddress := "TRTLyyyy..."
+changeAddress := "gunsyyyy..."
 
 transfers := []map[string]interface{}{
   {
-    "address" : "TRTLxxxx...",
+    "address" : "gunsxxxx...",
     "amount" : 5000,
   },
 }
@@ -1483,7 +1485,7 @@ Argument        | Mandatory     | Description                                   
 --------------- | ------------- | ---------------------------------------------------------------------------------------- | -------
 addresses       | No            | Array of strings, where each string is an address                                        | array
 transfers       | Yes           | Array of address (string), amount (int)                                                  | array
-fee             | Yes           | Transaction fee. Minimal fee in TurtleCoin network is 0.10 TRTL. This parameter should be specified in minimal available TRTL units. For example, if your fee is 0.10 TRTL, you should pass it as 10. | int
+fee             | Yes           | Transaction fee. Minimal fee in TurtleCoin network is 0.10 guns. This parameter should be specified in minimal available guns units. For example, if your fee is 0.10 guns, you should pass it as 10. | int
 unlockTime      | No	        | Height of the block until which transaction is going to be locked for spending.	       | int
 anonymity       | Yes           | Privacy (mixin) level from block 800,000 three (3)                                       | int
 extra           | No            | String of variable length. Can contain A-Z, 0-9 characters.                              | string
@@ -1506,7 +1508,7 @@ transactionHash	      | Hash of the sent transaction		| string
 ## getDelayedTransactionHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getDelayedTransactionHashes","params":{}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getDelayedTransactionHashes","params":{}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -1562,7 +1564,7 @@ transactionHashes	  | Array of strings, where each string is a transaction hash	
 ## deleteDelayedTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteDelayedTransaction","params":{"transactionHash":"b3e37..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteDelayedTransaction","params":{"transactionHash":"b3e37..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -1625,7 +1627,7 @@ In case of success returns an empty JSON object.
 ## sendDelayedTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendDelayedTransaction","params":{"transactionHash":"c37cd..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendDelayedTransaction","params":{"transactionHash":"c37cd..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -1689,12 +1691,12 @@ In case of success returns an empty JSON object.
 ## sendFusionTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendFusionTransaction","params":{"threshold":1000000,"anonymity":3,"addresses":["TRTLxxxx...","TRTLyyyy..."],"destinationAddress":"TRTLzzzz..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendFusionTransaction","params":{"threshold":1000000,"anonymity":3,"addresses":["gunsxxxx...","gunsyyyy..."],"destinationAddress":"gunszzzz..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.sendFusionTransaction({
-  destinationAddress: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  destinationAddress: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
 }).then((result) => {
   // do something
 })
@@ -1704,8 +1706,8 @@ service.sendFusionTransaction({
 <?php
 $threshold = 1000000;
 $anonymity = 3;
-$addresses = ['TRTLxxxx...', 'TRTLyyyy...'];
-$destinationAddress = 'TRTLzzzz...';
+$addresses = ['gunsxxxx...', 'gunsyyyy...'];
+$destinationAddress = 'gunszzzz...';
 $response = $turtleService->sendFusionTransaction($threshold, $anonymity, $addresses, $destinationAddress);
 
 echo $response;
@@ -1714,8 +1716,8 @@ echo $response;
 ```python
 threshold = 1000000
 anonymity = 3
-addresses = ['TRTLxxxx...', 'TRTLyyyy...']
-destination_address = 'TRTLzzzz...'
+addresses = ['gunsxxxx...', 'gunsyyyy...']
+destination_address = 'gunszzzz...'
 response = walletd.send_fusion_transaction(threshold, anonymity, addresses, destination_address)
 
 print(response)
@@ -1723,8 +1725,8 @@ print(response)
 
 ```go
 threshold := 1000000
-addresses := []string{"TRTLxxxx...", "TRTLyyyy..."}
-destinationAddress := "TRTLzzzz..."
+addresses := []string{"gunsxxxx...", "gunsyyyy..."}
+destinationAddress := "gunszzzz..."
 response, err := service.SendfusionTransaction(threshold, addresses, destinationAddress)
 if err != nil {
 	fmt.Println(err)
@@ -1774,14 +1776,14 @@ transactionHash	      | Hash of the sent transaction		| string
 ## estimateFusion
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"estimateFusion","params":{"threshold":1000000,"addresses":["TRTLxxxx...","TRTLyyyy..."]}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"estimateFusion","params":{"threshold":1000000,"addresses":["gunsxxxx...","gunsyyyy..."]}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.estimateFusion({
   threshold: 100000000,
   addresses:[
-    'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+    'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
   ]
 }).then((result) => {
   // do something
@@ -1791,7 +1793,7 @@ service.estimateFusion({
 ```php
 <?php
 $threshold = 1000000;
-$addresses = ['TRTLxxxx...', 'TRTLyyyy...'];
+$addresses = ['gunsxxxx...', 'gunsyyyy...'];
 $response = $turtleService->estimateFusion($threshold, $addresses);
 
 echo $response;
@@ -1799,14 +1801,14 @@ echo $response;
 
 ```python
 threshold = 1000000
-addresses = ['TRTLxxxx...', 'TRTLyyyy...']
+addresses = ['gunsxxxx...', 'gunsyyyy...']
 response = walletd.estimate_fusion(threshold, addresses)
 print(response)
 ```
 
 ```go
 threshold := 1000000
-addresses := []string{"TRTLxxxx...","TRTLyyyy..."}
+addresses := []string{"gunsxxxx...","gunsyyyy..."}
 response, err := service.EstimateFusion(threshold, addresses)
 if err != nil {
 	fmt.Println(err)
@@ -1848,12 +1850,12 @@ fusionReadyCount    | Number of outputs that can be optimized.                  
 ## createIntegratedAddress
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createIntegratedAddress","params":{"paymentId":"7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F", "address":"TRTLxxxx..."}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createIntegratedAddress","params":{"paymentId":"7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F", "address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
 service.createIntegratedAddress({
-  address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ',
+  address: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ',
   paymentId: '80ec855eef7df4bce718442cabe086f19dfdd0d03907c7768eddb8eca8c5a667'
 }).then((result) => {
   // do something
@@ -1862,7 +1864,7 @@ service.createIntegratedAddress({
 
 ```php
 <?php
-$address = 'TRTLxxxx...';
+$address = 'gunsxxxx...';
 $paymentId = '7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F';
 $response = $turtleService->createIntegratedAddress($address, $paymentId);
 
@@ -1870,14 +1872,14 @@ echo $response;
 ```
 
 ```python
-address = 'TRTLxxxx...'
+address = 'gunsxxxx...'
 payment_id = '7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F'
 response = walletd.create_integrated_address(address, payment_id)
 print(response)
 ```
 
 ```go
-address := "TRTLxxxx..."
+address := "gunsxxxx..."
 paymentID := "7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F"
 response, err := service.CreateIntegratedAddress(address, paymentID)
 if err != nil {
@@ -1894,7 +1896,7 @@ if err != nil {
   "id": 1,
   "jsonrpc": "2.0",
   "result": {
-    "integratedAddress": "TRTLxxx..."
+    "integratedAddress": "gunsxxx..."
   }
 }
 ```
@@ -1917,7 +1919,7 @@ integratedAddress	  | The created integrated address		| string
 ## getFeeInfo
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getFeeInfo","params":{}}' http://localhost:8070/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getFeeInfo","params":{}}' http://localhost:19760/json_rpc
 ```
 
 ```javascript
@@ -1954,7 +1956,7 @@ if err != nil {
   "id": 1,
   "jsonrpc": "2.0",
   "result": {
-    "address": "TRTLxxx...",
+    "address": "gunsxxx...",
     "amount": 5000
   }
 }
@@ -1980,3 +1982,7 @@ The content in this document were originally written by the [Bytecoin (BCN) Deve
 Also of note, TurtleCoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of the Bytecoin development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
 
 _TurtleCoin developers 2018_
+
+Also of note, 2ACoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of any other development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
+
+_2ACoin Developers 2019_
