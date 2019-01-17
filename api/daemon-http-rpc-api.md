@@ -2,6 +2,7 @@
 
 Daemon HTTP RPC is a HTTP server which provides additional information regarding Network and Daemon connections.
 
+2ACoin utilizes the bindings built and maintained by the TurtleCoin community.
 Currently we support the following official client bindings:
 
 * [NodeJS](https://www.npmjs.com/package/turtlecoin-rpc)
@@ -26,7 +27,7 @@ go get github.com/turtlecoin/turtlecoin-rpc-go
 > API endpoint example
 
 ```
-http://localhost:11898
+http://localhost:17910
 ```
 
 > Configuration and Instantiation
@@ -35,8 +36,8 @@ http://localhost:11898
 const TurtleCoind = require('turtlecoin-rpc').TurtleCoind
 
 const daemon = new TurtleCoind({
-  host: '0.0.0.0', // ip address or hostname of the TurtleCoind host
-  port: 11898, // what port is the RPC server running on
+  host: '0.0.0.0', // ip address or hostname of the 2ACoind host
+  port: 17910, // what port is the RPC server running on
   timeout: 2000, // request timeout
   ssl: false // whether we need to connect using SSL/TLS
 })
@@ -48,7 +49,7 @@ use TurtleCoin\TurtleCoind;
 
 $config = [
     'rpcHost' => 'http://localhost',
-    'rpcPort' => 11898,
+    'rpcPort' => 17910,
 ];
 
 $turtlecoind = new TurtleCoind($config);
@@ -58,7 +59,7 @@ $turtlecoind = new TurtleCoind($config);
 from turtlecoin import TurtleCoind
 
 rpc_host = 'localhost'
-rpc_port = 11898
+rpc_port = 17910
 turtlecoind = TurtleCoind(rpc_host, rpc_port)
 ```
 
@@ -69,36 +70,36 @@ import (
 )
 
 rpcHost := "localhost"
-rpcPort := 11898
+rpcPort := 17910
 
 daemon := trpc.TurtleCoind{
   URL: rpcHost,
   Port: rpcPort}
 ```
 
-To start the Daemon JSON RPC API server at `http://localhost:11898`, run:
+To start the Daemon JSON RPC API server at `http://localhost:17910`, run:
 
-`TurtleCoind --rpc-bind-port=11898`
+`2ACoind --rpc-bind-port=17910`
 
 To make the server accessible from another computer, use the `--rpc-bind-ip 0.0.0.0` switch.
 
-`TurtleCoind --rpc-bind-ip=0.0.0.0 --rpc-bind-port=11898`
+`2ACoind --rpc-bind-ip=0.0.0.0 --rpc-bind-port=17910`
 
 To enable block explorer API access (like for `getblocks`, `gettransactionpool`, etc.), use the `--enable_blockexplorer` switch.
 
-`TurtleCoind --enable_blockexplorer`
+`2ACoind --enable_blockexplorer`
 
 The above given switches can be combined to achieve remote access with block explorer methods as shown below.
 
-`TurtleCoind --enable_blockexplorer --rpc-bind-ip=0.0.0.0 --rpc-bind-port=11898`
+`2ACoind --enable_blockexplorer --rpc-bind-ip=0.0.0.0 --rpc-bind-port=17910`
 
 This would make the RPC server accessible at
 
-`http://<your ip address>:11898`
+`http://<your ip address>:17910`
 
 and, locally at
 
-`http://localhost:11898`
+`http://localhost:17910`
 
 
 To make a HTTP RPC request to your Daemon RPC you should use a GET request that looks like this:
@@ -108,13 +109,13 @@ To make a HTTP RPC request to your Daemon RPC you should use a GET request that 
 Parameter            | Description
 -------------------- | ------------------------------------------------------------
 `<service address>`  | IP of Daemon RPC, if it is located on local machine it is either 127.0.0.1 or localhost
-`<service port>`     | Daemon RPC port, by default it is bound to 11898 port, but it can be manually bound to any port you want
+`<service port>`     | Daemon RPC port, by default it is bound to 17910 port, but it can be manually bound to any port you want
 
 
 ## getheight
 
 ```shell
-curl http://localhost:11898/getheight
+curl http://localhost:17910/getheight
 ```
 
 ```javascript
@@ -166,7 +167,7 @@ status           | Status of request | string
 ## getinfo
 
 ```shell
-curl http://localhost:11898/getinfo
+curl http://localhost:17910/getinfo
 ```
 
 ```javascript
@@ -260,7 +261,7 @@ white_peerlist_size | - | int
 ## gettransactions
 
 ```shell
-curl http://localhost:11898/gettransactions
+curl http://localhost:17910/gettransactions
 ```
 
 ```javascript
@@ -316,7 +317,7 @@ txs_as_hex   | array of hex values of missed transactions | array
 ## getpeers
 
 ```shell
-curl http://localhost:11898/getpeers
+curl http://localhost:17910/getpeers
 ```
 
 ```javascript
@@ -371,7 +372,7 @@ status           | Status of request | string
 ## feeinfo
 
 ```shell
-curl http://localhost:11898/feeinfo
+curl http://localhost:17910/feeinfo
 ```
 
 ```javascript
@@ -430,3 +431,7 @@ The content in this document were originally written by the [Bytecoin (BCN) Deve
 Also of note, TurtleCoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of the Bytecoin development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
 
 _TurtleCoin developers 2018_
+
+Also of note, 2ACoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of any other development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
+
+_2ACoin Developers 2019_

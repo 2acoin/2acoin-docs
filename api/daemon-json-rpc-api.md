@@ -2,6 +2,7 @@
 
 Daemon JSON RPC is a HTTP server which provides JSON 2.0 RPC interface for interacting with Daemon and Block Explorer.
 
+2ACoin utilizes the bindings built and maintained by the TurtleCoin community.
 Currently we support the following official client bindings:
 
 * [JavaScript](https://www.npmjs.com/package/turtlecoin-rpc)
@@ -30,7 +31,7 @@ go get github.com/turtlecoin/turtlecoin-rpc-go
 > API endpoint example
 
 ```
-http://localhost:11898/json_rpc
+http://localhost:17910/json_rpc
 ```
 
 > Configuration and Instantiation
@@ -39,7 +40,7 @@ http://localhost:11898/json_rpc
 from turtlecoin import TurtleCoind
 
 rpc_host = 'localhost'
-rpc_port = 11898
+rpc_port = 17910
 turtlecoind = TurtleCoind(rpc_host, rpc_port)
 ```
 
@@ -48,7 +49,7 @@ const TurtleCoind = require('turtlecoin-rpc').TurtleCoind
 
 const daemon = new TurtleCoind({
   host: '0.0.0.0', // ip address or hostname of the TurtleCoind host
-  port: 11898, // what port is the RPC server running on
+  port: 17910, // what port is the RPC server running on
   timeout: 2000, // request timeout
   ssl: false // whether we need to connect using SSL/TLS
 })
@@ -60,7 +61,7 @@ use TurtleCoin\TurtleCoind;
 
 $config = [
     'rpcHost' => 'http://localhost',
-    'rpcPort' => 11898,
+    'rpcPort' => 17910,
 ];
 
 $turtlecoind = new TurtleCoind($config);
@@ -73,36 +74,36 @@ import (
 )
 
 rpcHost := "localhost"
-rpcPort := 11898
+rpcPort := 17910
 
 daemon := trpc.TurtleCoind{
     URL: rpcHost,
     Port: rpcPort}
 ```
 
-To start the Daemon JSON RPC API server at `http://localhost:11898/json_rpc`, run:
+To start the Daemon JSON RPC API server at `http://localhost:17910/json_rpc`, run:
 
-`TurtleCoind --rpc-bind-port=11898`
+`2ACoind --rpc-bind-port=17910`
 
 To make the server accessible from another computer, use the `--rpc-bind-ip 0.0.0.0` switch.
 
-`TurtleCoind --rpc-bind-ip=0.0.0.0 --rpc-bind-port=11898`
+`2ACoind --rpc-bind-ip=0.0.0.0 --rpc-bind-port=17910`
 
 To enable block explorer API access (like for `getblocks`, `gettransactionpool`, etc.), use the `--enable_blockexplorer` switch.
 
-`TurtleCoind --enable_blockexplorer`
+`2ACoind --enable_blockexplorer`
 
 The above given switches can be combined to achieve remote access with block explorer methods as shown below.
 
-`TurtleCoind --enable_blockexplorer --rpc-bind-ip=0.0.0.0 --rpc-bind-port=11898`
+`2ACoind --enable_blockexplorer --rpc-bind-ip=0.0.0.0 --rpc-bind-port=17910`
 
 This would make the RPC server accessible at
 
-`http://<your ip address>:11898/json_rpc`
+`http://<your ip address>:17910/json_rpc`
 
 and, locally at
 
-`http://localhost:11898/json_rpc`
+`http://localhost:17910/json_rpc`
 
 
 To make a JSON RPC request to your Daemon RPC you should use a POST request that looks like this:
@@ -112,13 +113,13 @@ To make a JSON RPC request to your Daemon RPC you should use a POST request that
 Parameter            | Description
 -------------------- | ------------------------------------------------------------
 `<service address>`  | IP of Daemon RPC, if it is located on local machine it is either 127.0.0.1 or localhost
-`<service port>`     | Daemon RPC port, by default it is bound to 11898 port, but it can be manually bound to any port you want
+`<service port>`     | Daemon RPC port, by default it is bound to 17910 port, but it can be manually bound to any port you want
 
 
 ## getblockcount
 
 ```shell
-curl -d '{"jsonrpc":"2.0", "method":"getblockcount", "params":{}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0", "method":"getblockcount", "params":{}}' http://localhost:17910/json_rpc
 ```
 
 ```javascript
@@ -172,7 +173,7 @@ status           | Status of request | string
 ## getblockhash
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"on_getblockhash","params":[123456]}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"on_getblockhash","params":[123456]}' http://localhost:17910/json_rpc
 ```
 
 ```javascript
@@ -230,14 +231,14 @@ result           | Hash of previous block | int
 ## getblocktemplate
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"getblocktemplate","params":{"reserve_size":200,"wallet_address":"TRTLxxxx..."}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"getblocktemplate","params":{"reserve_size":200,"wallet_address":"TRTLxxxx..."}}' http://localhost:17910/json_rpc
 ```
 
 
 ```javascript
 daemon.getBlockTemplate({
   reserveSize: 200,
-  walletAddress: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  walletAddress: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
 }).then((blockTemplate) => {
   // do something
 }).catch((error) => {
@@ -248,14 +249,14 @@ daemon.getBlockTemplate({
 ```php
 <?php
 $reserveSize = 200;
-$address = 'TRTLxxxx...';
+$address = 'gunsxxxx...';
 $response = $turtlecoind->getBlockTemplate($reserveSize, $address);
 echo $response;
 ```
 
 ```python
 reserve_size = 200
-wallet_address = 'TRTLxxxx...'
+wallet_address = 'gunsxxxx...'
 
 response = turtlecoind.get_block_template(reserve_size, wallet_address)
 print(response)
@@ -263,7 +264,7 @@ print(response)
 
 ```go
 reserveSize := 200
-walletAddress := "TRTLxxxx..."
+walletAddress := "gunsxxxx..."
 
 response := daemon.GetBlockTemplate(reserveSize, walletAddress)
 fmt.Println(response)
@@ -306,7 +307,7 @@ status | Status of the network | string
 ## submitblock
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"submitblock","params":["0100b...."]}' https://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"submitblock","params":["0100b...."]}' https://localhost:17910/json_rpc
 ```
 
 ```javascript
@@ -366,7 +367,7 @@ status           | Status of request | string
 ## getlastblockheader
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"getlastblockheader","params":{}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"getlastblockheader","params":{}}' http://localhost:17910/json_rpc
 ```
 
 
@@ -444,7 +445,7 @@ status | status of the request | string
 ## getblockheaderbyhash
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"getblockheaderbyhash","params":{"hash":"30706..."}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"getblockheaderbyhash","params":{"hash":"30706..."}}' http://localhost:17910/json_rpc
 ```
 
 
@@ -533,7 +534,7 @@ status | status of the request | string
 ## getblockheaderbyheight
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"getblockheaderbyheight","params":{"height":123456}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"getblockheaderbyheight","params":{"height":123456}}' http://localhost:17910/json_rpc
 ```
 
 
@@ -622,7 +623,7 @@ status | status of the request | string
 ## getcurrencyid
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"getcurrencyid","params":{}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"getcurrencyid","params":{}}' http://localhost:17910/json_rpc
 ```
 
 
@@ -674,7 +675,7 @@ currency_id_blob | unique currency identifier | string
 ## getblocks
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"f_blocks_list_json","params":{"height":500000}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"f_blocks_list_json","params":{"height":500000}}' http://localhost:17910/json_rpc
 ```
 
 ```javascript
@@ -752,7 +753,7 @@ blocks   | **Array of** |                                       |
 ## getblock
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"f_block_json","params":{"hash":"980ff..."}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"f_block_json","params":{"hash":"980ff..."}}' http://localhost:17910/json_rpc
 ```
 
 ```javascript
@@ -872,7 +873,7 @@ size | size of the transaction | int
 ## gettransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"f_transaction_json","params":{"hash":"702ad..."}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"f_transaction_json","params":{"hash":"702ad..."}}' http://localhost:17910/json_rpc
 ```
 
 ```javascript
@@ -1007,7 +1008,7 @@ vout | array of output transactions | array
 ## gettransactionpool
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"f_on_transactions_pool_json","params":{}}' http://localhost:11898/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"f_on_transactions_pool_json","params":{}}' http://localhost:17910/json_rpc
 ```
 
 ```javascript
@@ -1083,3 +1084,7 @@ The content in this document were originally written by the [Bytecoin (BCN) Deve
 Also of note, TurtleCoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of the Bytecoin development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
 
 _TurtleCoin developers 2018_
+
+Also of note, 2ACoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of any other development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
+
+_2ACoin Developers 2019_
