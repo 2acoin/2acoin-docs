@@ -1,8 +1,8 @@
 # RPC Errors
-Here are some common error messages with TurtleCoind and Walletd spit out, why they occured and how to fix them.  
-Listed are also some possible alternative errors which they could spit out.
+Here are some common error messages that 2ACoind and 2acoin-service spit out, why they occured, and how to fix them.  
+Listed are also some possible alternative errors which may be generated.
 
-* `https://github.com/turtlecoin/turtlecoin/blob/master/src/Wallet/WalletErrors.h`
+* `https://github.com/2acoin/2acoin/blob/master/src/Wallet/WalletErrors.h`
 
 ## BAD_ADDRESS / Bad address
 >**Possible Alternative Error:**
@@ -12,7 +12,7 @@ Listed are also some possible alternative errors which they could spit out.
 This error can happen when an address you supply is invalid, or the address field in your request is improperly formatted.
 
 **Solution:**
-First make sure that the address you are attempting to send to is a valid 99 character long TRTL address, or 236 character integrated address. Next, make sure that your request is properly formatted - for instance, in a SendTransaction request where you are sending from multiple addresses, the address field must be an array of strings, and the address field within the transfers array must be a single string.
+First make sure that the address you are attempting to send to is a valid 98 character long GUNS address, or 235 character integrated address. Next, make sure that your request is properly formatted - for instance, in a SendTransaction request where you are sending from multiple addresses, the address field must be an array of strings, and the address field within the transfers array must be a single string.
 
 ## WRONG_AMOUNT / Wrong amount
 >**Possible Alternative Error:**
@@ -38,9 +38,11 @@ This can be rectified by using zero mixin or lowering the amount you are sending
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## WRONG_PASSWORD / The password is wrong
 >**Possible Alternative Error:**
@@ -56,17 +58,21 @@ Enter the correct password! Import via keys if you cannot remember it.
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## INTERNAL_WALLET_ERROR / Internal error occurred
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## TRANSACTION_SIZE_TOO_BIG / Transaction size is too big
 >**Possible Alternative Error:**
@@ -107,40 +113,48 @@ Ensure you supply an address parameter in the transfers array, and that the amou
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## WRONG_STATE / The wallet is in wrong state (maybe loading or saving),try again later
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## OPERATION_CANCELLED / The operation you've requested has been cancelled
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## TX_TRANSFER_IMPOSSIBLE / Transaction transfer impossible
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## WRONG_VERSION / Wrong version
 >**Possible Alternative Error:**
 > -
 
 **Description:**
-This is encountered when loading the wallet file with walletd. There are a few possible causes for it:
+This is encountered when loading the wallet file with 2acoin-service. There are a few possible causes for it:
 * Your wallet file is the wrong version
 * The wallet file has got corrupted.
 
@@ -150,29 +164,33 @@ Delete the blockchain db, delete the .wallet file, import your keys, and resync 
 
 ## FEE_TOO_SMALL / Transaction fee is too small
 >**Possible Alternative Error:**
->Transaction fee lower than minimum of 0.1 TRTL.
+>Transaction fee lower than minimum of 0.0005 ARMS.
 
 **Description:**
 This occurs if the transaction fee is below the minimum allowed.
 
 **Solution:**
-Make sure the fee used is at least 0.1 TRTL, or 10 in atomic units.
+Make sure the fee used is at least 0.0005 ARMS, or 5000 in atomic units.
 
 ## KEY_GENERATION_ERROR / Cannot generate new key
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## INDEX_OUT_OF_RANGE / Index is out of range
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## ADDRESS_ALREADY_EXISTS / Address already exists
 >**Possible Alternative Error:**
@@ -205,18 +223,20 @@ This error can occur in a number of scenarios.
 * The blocks count given is less than 1  
 * The blockindex given is less than 1  
 
-For more info on the exact error, check your walletd.log or console window.
+For more info on the exact error, check your 2acoin-service.log or console window.
 
 **Solution:**
-Check the api-docs for examples on how to use the method you are toying with, to help determine what parameter is invalid.
+Check the api-docs for examples on how to use the method you are trying to us, to help determine what parameter is invalid.
 
 ## OBJECT_NOT_FOUND / Object not found
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## WALLET_NOT_FOUND / Requested wallet not found
 >**Possible Alternative Error:**
@@ -293,7 +313,7 @@ Your transaction extra should only contain a-z 0-9 characters.
 >Mixin is above maximum allowed threshold of \<x\>
 
 **Description:**
-This occurs when your anonymity value is above the maximum allowed. You can check the current mixin limits by viewing their values in CryptoNoteConfig.h. Currently, the maximum allowed mixin is 100. This will change to 7 at block 620k.
+This occurs when your anonymity value is above the maximum allowed. You can check the current mixin limits by viewing their values in CryptoNoteConfig.h. Currently, the maximum allowed mixin is 3. This will change to 7 at block 300k.
 
 **Solution:**
 Make sure your anonymity value is within the allowed limits.
@@ -303,7 +323,7 @@ Make sure your anonymity value is within the allowed limits.
 >Mixin is below minimum allowed threshold of \<x\>
 
 **Description:**
-This occurs when your anonymity value is above the minimum allowed. You can check the current mixin limits by viewing their values in CryptoNoteConfig.h. Currently, the minimum allowed mixin is 0. This will change to 7 at block 620k.
+This occurs when your anonymity value is above the minimum allowed. You can check the current mixin limits by viewing their values in CryptoNoteConfig.h. Currently, the minimum allowed mixin is 0. 
 
 **Solution:**
 Make sure your anonymity value is withing the allowed limits.
@@ -319,65 +339,77 @@ When using integrated addresses, if a payment ID is specified, it must match the
 Only send to one integrated address at once, and don't include a payment ID, to avoid confusion.
 
 
-**Turtlecoind Errors**  
-* `https://github.com/turtlecoin/turtlecoin/blob/master/src/NodeRpcProxy/NodeErrors.h`  
-* `https://github.com/turtlecoin/turtlecoin/blob/master/src/InProcessNode/InProcessNodeErros.h`
+**2ACoind Errors**  
+* `https://github.com/2acoin/2acoin/blob/master/src/NodeRpcProxy/NodeErrors.h`  
+
 
 ## NOT_INITIALIZED / Object was not initialized
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## ALREADY_INITIALIZED / Object has been already initialized
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## NETWORK_ERROR / Network error
 >**Possible Alternative Error:**
 > -
 
 **Description:**
-TurtleCoind is not open / not responding.
+2ACoind is not open / not responding.
 
 **Solution:**
- I'm not sure if you can experience this with walletd, I have seen it with walletgreen.
+ I'm not sure if you can experience this with 2acoin-service, I have seen it with walletgreen.
 
 ## NODE_BUSY / Node is busy
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## INTERNAL_NODE_ERROR / Internal node error
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## REQUEST_ERROR / Error in request parameters
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 
 ## CONNECT_ERROR / Can't connect to daemon
 >**Possible Alternative Error:**
 > -
 
-**Description:** -
+**Description:** 
+-
 
-**Solution:** -
+**Solution:** 
+-
 

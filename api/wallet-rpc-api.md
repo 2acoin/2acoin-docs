@@ -1,10 +1,10 @@
 # Wallet RPC API
 
-2ACoin RPC Wallet is a HTTP server which provides JSON 2.0 RPC interface for 2ACoin payment operations and address management.
+2ACoin RPC Wallet is a HTTP server built into the `2acoin-service` which provides JSON 2.0 RPC interface for 2ACoin payment operations and address management.
 
-2ACoin utilizes the bindings built and maintained by the TurtleCoin community.  
+For Developers - 2ACoin utilizes the bindings built and maintained by the TurtleCoin community.  
 
-Currently we support the following official client bindings:
+Currently we support the following official client languages/bindings:
 
 * [JavaScript](https://www.npmjs.com/package/turtlecoin-rpc)
 * [PHP](https://github.com/turtlecoin/turtlecoin-rpc-php)
@@ -41,8 +41,8 @@ http://localhost:17760/json_rpc
 const TurtleService = require('turtlecoin-rpc').TurtleService
 
 const service = new TurtleService({
-  host: '127.0.0.1', // ip address or hostname of the turtle-service host
-  port: 17760, // what port is turtle-service running on
+  host: '127.0.0.1', // ip address or hostname of the 2acoin-service host
+  port: 17760, // what port is 2acoin-service running on
   timeout: 2000, // request timeout
   ssl: false, // whether we need to connect using SSL/TLS
   rpcPassword: 'changeme', // must be set to the password used to run turtle-service
@@ -97,14 +97,14 @@ service := trpc.Walletd{
   RPCPassword: rpcPassword}
 ```
 
-To make a JSON RPC request to your TurtleCoin RPC Wallet you should use a POST request that looks like this:
+To make a JSON RPC request to your 2acoin-service RPC Wallet you should use a POST request that looks like this:
 
 `http://<service address>:<service port>/json_rpc`
 
 Parameter            | Description
 -------------------- | ------------------------------------------------------------
-`<service address>`  | IP of 2ACoin RPC Wallet, if RPC Wallet is located on local machine it is either 127.0.0.1 or localhost
-`<service port>`     | 2ACoin RPC Wallet port, by default it is bound to 17760 port, but it can be manually bound to any port you want
+`<service address>`  | IP of 2acoin-service RPC Wallet, if RPC Wallet is located on local machine it is either 127.0.0.1 or localhost
+`<service port>`     | 2acoin-service RPC Wallet port, by default it is bound to 17760 port, but it can be manually bound to any port you want
 
 
 
@@ -1962,7 +1962,7 @@ if err != nil {
 }
 ```
 
-`getFeeInfo()` method retrieves the fee and address (if any) that that TurtleCoind walletd is connecting to is using. This fee will automatically be added to any transactions sent by sendTransaction() or sendDelayedTransaction(). Note it does not apply to sendFusionTransaction().
+`getFeeInfo()` method retrieves the fee and address (if any) of the 2ACoind the 2acoin-service is connecting to. This fee will automatically be added to any transactions sent by sendTransaction() or sendDelayedTransaction(). Note it does not apply to sendFusionTransaction().
 
 No input.
 
@@ -1979,7 +1979,7 @@ amount                | The fee that will be sent to the node owners address wit
 
 The content in this document were originally written by the [Bytecoin (BCN) Developers](https://bytecoin.org/). It is licensed under the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). The source material can be found at the [Bytecoin Wiki](https://wiki.bytecoin.org/).
 
-Also of note, TurtleCoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of the Bytecoin development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
+TurtleCoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of the Bytecoin development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
 
 _TurtleCoin developers 2018_
 

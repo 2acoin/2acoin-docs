@@ -1,9 +1,10 @@
 # Daemon JSON RPC API
 
-Daemon JSON RPC is a HTTP server which provides JSON 2.0 RPC interface for interacting with Daemon and Block Explorer.
+2ACoind daemon JSON RPC is a HTTP server which provides JSON 2.0 RPC interface for interacting with Daemon and Block Explorer.
 
-2ACoin utilizes the bindings built and maintained by the TurtleCoin community.
-Currently we support the following official client bindings:
+For Developers - 2ACoin utilizes the bindings built and maintained by the TurtleCoin community.  
+
+Currently we support the following official client languages/bindings:
 
 * [JavaScript](https://www.npmjs.com/package/turtlecoin-rpc)
 * [PHP](https://github.com/turtlecoin/turtlecoin-rpc-php)
@@ -26,7 +27,7 @@ pip3 install turtlecoin
 go get github.com/turtlecoin/turtlecoin-rpc-go
 ```
 
-## Interacting with the API
+## Interacting with the 2ACoin daemon API
 
 > API endpoint example
 
@@ -35,6 +36,10 @@ http://localhost:17910/json_rpc
 ```
 
 > Configuration and Instantiation
+
+```shell
+curl -d '{"jsonrpc":"2.0", "method":"method_option", "params":{}}' http://localhost:17910/json_rpc
+```
 
 ```python
 from turtlecoin import TurtleCoind
@@ -48,7 +53,7 @@ turtlecoind = TurtleCoind(rpc_host, rpc_port)
 const TurtleCoind = require('turtlecoin-rpc').TurtleCoind
 
 const daemon = new TurtleCoind({
-  host: '0.0.0.0', // ip address or hostname of the TurtleCoind host
+  host: '0.0.0.0', // ip address or hostname of the 2ACoind host
   port: 17910, // what port is the RPC server running on
   timeout: 2000, // request timeout
   ssl: false // whether we need to connect using SSL/TLS
@@ -112,8 +117,8 @@ To make a JSON RPC request to your Daemon RPC you should use a POST request that
 
 Parameter            | Description
 -------------------- | ------------------------------------------------------------
-`<service address>`  | IP of Daemon RPC, if it is located on local machine it is either 127.0.0.1 or localhost
-`<service port>`     | Daemon RPC port, by default it is bound to 17910 port, but it can be manually bound to any port you want
+`<service address>`  | IP of 2ACoind daemon RPC, if it is located on local machine it is either 127.0.0.1 or localhost
+`<service port>`     | 2ACoind daemon RPC port, by default it is bound to 17910 port, but it can be manually bound to any port you want
 
 
 ## getblockcount

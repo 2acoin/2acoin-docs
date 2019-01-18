@@ -1,9 +1,10 @@
 # Daemon HTTP RPC API
 
-Daemon HTTP RPC is a HTTP server which provides additional information regarding Network and Daemon connections.
+2ACoind daemon HTTP RPC is a HTTP server which provides additional information regarding Network and Daemon connections.
 
-2ACoin utilizes the bindings built and maintained by the TurtleCoin community.
-Currently we support the following official client bindings:
+For Developers - 2ACoin utilizes the bindings built and maintained by the TurtleCoin community.  
+
+Currently we support the following official client languages/bindings:
 
 * [NodeJS](https://www.npmjs.com/package/turtlecoin-rpc)
 * [PHP](https://github.com/turtlecoin/turtlecoin-rpc-php)
@@ -31,6 +32,10 @@ http://localhost:17910
 ```
 
 > Configuration and Instantiation
+
+```shell
+curl http://localhost:17910/method_option
+```
 
 ```javascript
 const TurtleCoind = require('turtlecoin-rpc').TurtleCoind
@@ -77,7 +82,7 @@ daemon := trpc.TurtleCoind{
   Port: rpcPort}
 ```
 
-To start the Daemon JSON RPC API server at `http://localhost:17910`, run:
+To start the 2ACoind daemon JSON RPC API server at `http://localhost:17910`, run:
 
 `2ACoind --rpc-bind-port=17910`
 
@@ -102,14 +107,14 @@ and, locally at
 `http://localhost:17910`
 
 
-To make a HTTP RPC request to your Daemon RPC you should use a GET request that looks like this:
+To make a HTTP RPC request to your 2ACoind daemon RPC you should use a GET request that looks like this:
 
 `http://<service address>:<service port>`
 
 Parameter            | Description
 -------------------- | ------------------------------------------------------------
-`<service address>`  | IP of Daemon RPC, if it is located on local machine it is either 127.0.0.1 or localhost
-`<service port>`     | Daemon RPC port, by default it is bound to 17910 port, but it can be manually bound to any port you want
+`<service address>`  | IP of 2ACoind daemon RPC server, if it is located on local machine it is either 127.0.0.1 or localhost
+`<service port>`     | 2ACoind daemon RPC port, by default it is bound to 17910 port, but it can be manually bound to any port you want
 
 
 ## getheight
@@ -428,7 +433,7 @@ status           | Status of fees for the node | string
 
 The content in this document were originally written by the [Bytecoin (BCN) Developers](https://bytecoin.org/). It is licensed under the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). The source material can be found at the [Bytecoin Wiki](https://wiki.bytecoin.org/).
 
-Also of note, TurtleCoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of the Bytecoin development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
+TurtleCoin developers have altered and adapted the content to suit our implementation of the API. This was done independently of the Bytecoin development team. They neither endorse or acknowledge our changes. Feel free to adopt or change our content as per the [CC BY SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/) requirements.
 
 _TurtleCoin developers 2018_
 
