@@ -38,11 +38,9 @@ This can be rectified by using zero mixin or lowering the amount you are sending
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## WRONG_PASSWORD / The password is wrong
 >**Possible Alternative Error:**
@@ -58,21 +56,17 @@ Enter the correct password! Import via keys if you cannot remember it.
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## INTERNAL_WALLET_ERROR / Internal error occurred
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## TRANSACTION_SIZE_TOO_BIG / Transaction size is too big
 >**Possible Alternative Error:**
@@ -113,41 +107,33 @@ Ensure you supply an address parameter in the transfers array, and that the amou
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## WRONG_STATE / The wallet is in wrong state (maybe loading or saving),try again later
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## OPERATION_CANCELLED / The operation you've requested has been cancelled
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## TX_TRANSFER_IMPOSSIBLE / Transaction transfer impossible
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## WRONG_VERSION / Wrong version
 >**Possible Alternative Error:**
@@ -176,21 +162,17 @@ Make sure the fee used is at least 0.0005 ARMS, or 5000 in atomic units.
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## INDEX_OUT_OF_RANGE / Index is out of range
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## ADDRESS_ALREADY_EXISTS / Address already exists
 >**Possible Alternative Error:**
@@ -232,11 +214,9 @@ Check the api-docs for examples on how to use the method you are trying to us, t
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## WALLET_NOT_FOUND / Requested wallet not found
 >**Possible Alternative Error:**
@@ -347,21 +327,17 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## ALREADY_INITIALIZED / Object has been already initialized
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## NETWORK_ERROR / Network error
 >**Possible Alternative Error:**
@@ -377,39 +353,31 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## INTERNAL_NODE_ERROR / Internal node error
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## REQUEST_ERROR / Error in request parameters
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
 ## CONNECT_ERROR / Can't connect to daemon
 >**Possible Alternative Error:**
 > N/A
 
-**Description:** 
--
+**Description:** -
 
-**Solution:** 
--
+**Solution:** -
 
