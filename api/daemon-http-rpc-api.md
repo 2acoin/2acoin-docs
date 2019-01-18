@@ -6,7 +6,7 @@ For Developers - 2ACoin utilizes the bindings built and maintained by the Turtle
 
 Currently we support the following official client languages/bindings:
 
-* [NodeJS](https://www.npmjs.com/package/turtlecoin-rpc)
+* [JavaScript](https://www.npmjs.com/package/turtlecoin-rpc)
 * [PHP](https://github.com/turtlecoin/turtlecoin-rpc-php)
 * [Python](https://github.com/turtlecoin/turtlecoin-rpc-python)
 * [Go](https://github.com/turtlecoin/turtlecoin-rpc-go)

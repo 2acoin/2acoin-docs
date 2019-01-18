@@ -14,10 +14,13 @@
 ```
 
 
-This website documents the public APIs of 2ACoin.
+This website documents the public APIs available for 2ACoin.
 
-You can view code examples in the dark area to the right; switch the programming language of the examples with the tabs in the top right.
+We've included the API's available for 2ACoind and 2acoin-service in this version of the documentation.
 
-We also have some specific language bindings to make integration easier.
+To use this documentation, simply click on the desired subject area on the left, then choose the subtopic for that subject. The information on how to use the API will be displayed in the center section. You can view code examples in the dark area to the right by selecting the programming language of your choice, the examples for the selected language will be displayed.
+
+We also have some specific language bindings (bindings for javascript, php, python, and go) to make integration easier. You can find these bindings available at the start of each API section.
+NOTE - these bindings are maintained by the TurtleCoin community, use with caution.
 
 If anything is missing or seems incorrect, please check the [GitHub issues](https://github.com/2acoin/2acoin-docs/issues) for existing known issues or [create a new one](https://github.com/2acoin/2acoin-docs/issues/new).
