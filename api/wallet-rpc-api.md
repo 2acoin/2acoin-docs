@@ -32,7 +32,7 @@ go get github.com/turtlecoin/turtlecoin-rpc-go
 > API endpoint example
 
 ```
-http://localhost:19760/json_rpc
+http://localhost:17760/json_rpc
 ```
 
 > Configuration and instantiation
@@ -42,7 +42,7 @@ const TurtleService = require('turtlecoin-rpc').TurtleService
 
 const service = new TurtleService({
   host: '127.0.0.1', // ip address or hostname of the turtle-service host
-  port: 19760, // what port is turtle-service running on
+  port: 17760, // what port is turtle-service running on
   timeout: 2000, // request timeout
   ssl: false, // whether we need to connect using SSL/TLS
   rpcPassword: 'changeme', // must be set to the password used to run turtle-service
@@ -64,7 +64,7 @@ use TurtleCoin\TurtleService;
 
 $config = [
     'rpcHost'     => 'http://localhost',
-    'rpcPort'     => 19760,
+    'rpcPort'     => 17760,
     'rpcPassword' => 'passw0rd',
 ];
 
@@ -75,7 +75,7 @@ $turtleService = new TurtleService($config);
 from turtlecoin import Walletd
 
 rpc_host = 'localhost'
-rpc_port = 19760
+rpc_port = 17760
 rpc_password = 'passw0rd'
 
 walletd = Walletd(rpc_password, rpc_host, rpc_port)
@@ -88,7 +88,7 @@ import (
 )
 
 rpcHost := "localhost"
-rpcPort := 19760
+rpcPort := 17760
 rpcPassword := "passw0rd"
 
 service := trpc.Walletd{
@@ -104,14 +104,14 @@ To make a JSON RPC request to your TurtleCoin RPC Wallet you should use a POST r
 Parameter            | Description
 -------------------- | ------------------------------------------------------------
 `<service address>`  | IP of 2ACoin RPC Wallet, if RPC Wallet is located on local machine it is either 127.0.0.1 or localhost
-`<service port>`     | 2ACoin RPC Wallet port, by default it is bound to 19760 port, but it can be manually bound to any port you want
+`<service port>`     | 2ACoin RPC Wallet port, by default it is bound to 17760 port, but it can be manually bound to any port you want
 
 
 
 ## reset
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"reset","params":{"scanHeight":100000}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"reset","params":{"scanHeight":100000}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -180,7 +180,7 @@ No output in case of success.
 ## save
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"save","params":{}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"save","params":{}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -231,7 +231,7 @@ No output in case of success.
 ## getViewKey
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getViewKey","params":{}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getViewKey","params":{}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -289,7 +289,7 @@ viewSecretKey    | Private view key | string
 ## getSpendKeys
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getSpendKeys","params":{"address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getSpendKeys","params":{"address":"gunsxxxx..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -358,7 +358,7 @@ spendPublicKey    | Public spend key     | string
 ## getMnemonicSeed
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getMnemonicSeed","params":{"address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getMnemonicSeed","params":{"address":"gunsxxxx..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -429,7 +429,7 @@ mnemonicSeed      | Mnemonic seed        | string
 ## getStatus
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getStatus","params":{}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getStatus","params":{}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -493,7 +493,7 @@ peerCount        | Connected peers number	                                      
 ## getAddresses
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getAddresses","params":{}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getAddresses","params":{}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -554,7 +554,7 @@ addresses	      | Array of strings, where each string is an address	  | array
 ## createAddress
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createAddress","params":{}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createAddress","params":{}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -624,7 +624,7 @@ scanHeight               | No           | The height to begin scanning for trans
 ## deleteAddress
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteAddress","params":{"address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteAddress","params":{"address":"gunsxxxx..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -687,7 +687,7 @@ In case of success returns an empty JSON object.
 ## getBalance
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBalance","params":{"address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBalance","params":{"address":"gunsxxxx..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -760,7 +760,7 @@ lockedAmount          | Locked amount of the specified address in shells      | 
 ## getBlockHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBlockHashes","params":{"firstBlockIndex":0,"blockCount":3}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBlockHashes","params":{"firstBlockIndex":0,"blockCount":3}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -834,7 +834,7 @@ blockHashes		      | Array of strings, where each element is a block hash	| arra
 ## getTransactionHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactionHashes","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactionHashes","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -941,7 +941,7 @@ items	   | **Array of**                                        |	               
 ## getTransactions
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactions","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactions","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1098,7 +1098,7 @@ transfers           | Array of address (string), amount (int)                   
 ## getUnconfirmedTransactionHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getUnconfirmedTransactionHashes","params":{}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getUnconfirmedTransactionHashes","params":{}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1171,7 +1171,7 @@ transactionHashes      | Array of strings, where each string is a hash of an unc
 ## getTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransaction","params":{"transactionHash":"55a23..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransaction","params":{"transactionHash":"55a23..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1269,7 +1269,7 @@ transfers           | Array of addresses (string), amount (int)                 
 ## sendTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendTransaction","params":{"transfers":[{"address":"gunsxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"gunsyyyy..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendTransaction","params":{"transfers":[{"address":"gunsxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"gunsyyyy..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1388,7 +1388,7 @@ transactionHash	      | Hash of the sent transaction		| string
 ## createDelayedTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createDelayedTransaction","params":{"transfers":[{"address":"gunsxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"gunsyyyy..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createDelayedTransaction","params":{"transfers":[{"address":"gunsxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"gunsyyyy..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1508,7 +1508,7 @@ transactionHash	      | Hash of the sent transaction		| string
 ## getDelayedTransactionHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getDelayedTransactionHashes","params":{}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getDelayedTransactionHashes","params":{}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1564,7 +1564,7 @@ transactionHashes	  | Array of strings, where each string is a transaction hash	
 ## deleteDelayedTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteDelayedTransaction","params":{"transactionHash":"b3e37..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteDelayedTransaction","params":{"transactionHash":"b3e37..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1627,7 +1627,7 @@ In case of success returns an empty JSON object.
 ## sendDelayedTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendDelayedTransaction","params":{"transactionHash":"c37cd..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendDelayedTransaction","params":{"transactionHash":"c37cd..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1691,7 +1691,7 @@ In case of success returns an empty JSON object.
 ## sendFusionTransaction
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendFusionTransaction","params":{"threshold":1000000,"anonymity":3,"addresses":["gunsxxxx...","gunsyyyy..."],"destinationAddress":"gunszzzz..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendFusionTransaction","params":{"threshold":1000000,"anonymity":3,"addresses":["gunsxxxx...","gunsyyyy..."],"destinationAddress":"gunszzzz..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1776,7 +1776,7 @@ transactionHash	      | Hash of the sent transaction		| string
 ## estimateFusion
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"estimateFusion","params":{"threshold":1000000,"addresses":["gunsxxxx...","gunsyyyy..."]}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"estimateFusion","params":{"threshold":1000000,"addresses":["gunsxxxx...","gunsyyyy..."]}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1850,7 +1850,7 @@ fusionReadyCount    | Number of outputs that can be optimized.                  
 ## createIntegratedAddress
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createIntegratedAddress","params":{"paymentId":"7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F", "address":"gunsxxxx..."}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createIntegratedAddress","params":{"paymentId":"7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F", "address":"gunsxxxx..."}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -1919,7 +1919,7 @@ integratedAddress	  | The created integrated address		| string
 ## getFeeInfo
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getFeeInfo","params":{}}' http://localhost:19760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getFeeInfo","params":{}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
