@@ -36,7 +36,7 @@ This can be rectified by using zero mixin or lowering the amount you are sending
 
 ## NOT_INITIALIZED / Object was not initialized
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -56,7 +56,7 @@ Enter the correct password! Import via keys if you cannot remember it.
 
 ## ALREADY_INITIALIZED / The object is already initialized
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -66,7 +66,7 @@ Enter the correct password! Import via keys if you cannot remember it.
 
 ## INTERNAL_WALLET_ERROR / Internal error occurred
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -111,7 +111,7 @@ Ensure you supply an address parameter in the transfers array, and that the amou
 
 ## TX_CANCEL_IMPOSSIBLE / Impossible to cancel transaction
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -121,7 +121,7 @@ Ensure you supply an address parameter in the transfers array, and that the amou
 
 ## WRONG_STATE / The wallet is in wrong state (maybe loading or saving),try again later
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -131,7 +131,7 @@ Ensure you supply an address parameter in the transfers array, and that the amou
 
 ## OPERATION_CANCELLED / The operation you've requested has been cancelled
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -141,7 +141,7 @@ Ensure you supply an address parameter in the transfers array, and that the amou
 
 ## TX_TRANSFER_IMPOSSIBLE / Transaction transfer impossible
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -151,7 +151,7 @@ Ensure you supply an address parameter in the transfers array, and that the amou
 
 ## WRONG_VERSION / Wrong version
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:**
 This is encountered when loading the wallet file with 2acoin-service. There are a few possible causes for it:
@@ -174,7 +174,7 @@ Make sure the fee used is at least 0.0005 ARMS, or 5000 in atomic units.
 
 ## KEY_GENERATION_ERROR / Cannot generate new key
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -184,7 +184,7 @@ Make sure the fee used is at least 0.0005 ARMS, or 5000 in atomic units.
 
 ## INDEX_OUT_OF_RANGE / Index is out of range
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -230,7 +230,7 @@ Check the api-docs for examples on how to use the method you are trying to us, t
 
 ## OBJECT_NOT_FOUND / Object not found
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -330,7 +330,7 @@ Make sure your anonymity value is withing the allowed limits.
 
 ## CONFLICTING_PAYMENT_IDS / Multiple conflicting payment ID's werespecified via the use of integrated addresses
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:**
 When using integrated addresses, if a payment ID is specified, it must match the payment ID included in the integrated address. Furthermore, if multiple integrated addresses are used, they must all have the same payment ID.
@@ -345,7 +345,7 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 
 ## NOT_INITIALIZED / Object was not initialized
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -355,7 +355,7 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 
 ## ALREADY_INITIALIZED / Object has been already initialized
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -365,7 +365,7 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 
 ## NETWORK_ERROR / Network error
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:**
 2ACoind is not open / not responding.
@@ -375,7 +375,7 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 
 ## NODE_BUSY / Node is busy
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -385,7 +385,7 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 
 ## INTERNAL_NODE_ERROR / Internal node error
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -395,7 +395,7 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 
 ## REQUEST_ERROR / Error in request parameters
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
@@ -405,7 +405,7 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 
 ## CONNECT_ERROR / Can't connect to daemon
 >**Possible Alternative Error:**
-> -
+> N/A
 
 **Description:** 
 -
