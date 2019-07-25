@@ -207,7 +207,7 @@ fmt.Println(response)
     "difficulty":250340644,
     "grey_peerlist_size":493,
     "hashrate":8344688,
-    "height":614321,
+    "height":314321,
     "incoming_connections_count":28,
     "last_known_block_index":614319,
     "major_version":4,
@@ -228,7 +228,7 @@ fmt.Println(response)
         620000,
         .....
     ],
-    "version":"0.6.3",
+    "version":"0.1.3",
     "white_peerlist_size":43
 }
 ```

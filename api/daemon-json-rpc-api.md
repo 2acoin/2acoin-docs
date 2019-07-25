@@ -157,7 +157,7 @@ fmt.Println(response)
 {
     "jsonrpc":"2.0",
     "result":{
-        "count":560915,
+        "count":260915,
         "status":"OK"
     }
 }
@@ -183,7 +183,7 @@ curl -d '{"jsonrpc":"2.0","method":"on_getblockhash","params":[123456]}' http://
 
 ```javascript
 daemon.getBlockHash({
-  height: 500000
+  height: 50000
 }).then((blockHash) => {
   // do something
 }).catch((error) => {
@@ -236,14 +236,14 @@ result           | Hash of previous block | int
 ## getblocktemplate
 
 ```shell
-curl -d '{"jsonrpc":"2.0","method":"getblocktemplate","params":{"reserve_size":200,"wallet_address":"TRTLxxxx..."}}' http://localhost:17910/json_rpc
+curl -d '{"jsonrpc":"2.0","method":"getblocktemplate","params":{"reserve_size":200,"wallet_address":"gunsxxxx..."}}' http://localhost:17910/json_rpc
 ```
 
 
 ```javascript
 daemon.getBlockTemplate({
   reserveSize: 200,
-  walletAddress: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  walletAddress: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNsavKpnUbrwfQ'
 }).then((blockTemplate) => {
   // do something
 }).catch((error) => {
@@ -297,7 +297,7 @@ fmt.Println(response)
 Argument | Mandatory | Description | Format
 -------- | -------- | ------------- | -----
 reserve_size | Yes | Size of the reserve to be specified | int
-wallet_address | Yes | Valid TurtleCoin wallet address | String
+wallet_address | Yes | Valid 2ACoin wallet address | String
 
 **Output**
 

@@ -1,5 +1,5 @@
 # RPC Errors
-Here are some common error messages that 2ACoind and 2acoin-service spit out, why they occured, and how to fix them.  
+Here are some common error messages that 2ACoind and 2acoin-service generate, why they occured, and how to fix them.  
 Listed are also some possible alternative errors which may be generated.
 
 * `https://github.com/2acoin/2acoin/blob/master/src/Wallet/WalletErrors.h`
@@ -156,7 +156,7 @@ Delete the blockchain db, delete the .wallet file, import your keys, and resync 
 This occurs if the transaction fee is below the minimum allowed.
 
 **Solution:**
-Make sure the fee used is at least 0.0005 ARMS, or 5000 in atomic units.
+Make sure the fee used is at least 0.0005 ARMS, or 50000 in atomic units.
 
 ## KEY_GENERATION_ERROR / Cannot generate new key
 >**Possible Alternative Error:**
@@ -293,7 +293,7 @@ Your transaction extra should only contain a-z 0-9 characters.
 >Mixin is above maximum allowed threshold of \<x\>
 
 **Description:**
-This occurs when your anonymity value is above the maximum allowed. You can check the current mixin limits by viewing their values in CryptoNoteConfig.h. Currently, the maximum allowed mixin is 3. This will change to 7 at block 300k.
+This occurs when your anonymity value is above the maximum allowed. You can check the current mixin limits by viewing their values in CryptoNoteConfig.h. Currently, the maximum allowed mixin is 3. This will change at a later date.
 
 **Solution:**
 Make sure your anonymity value is within the allowed limits.
@@ -347,7 +347,7 @@ Only send to one integrated address at once, and don't include a payment ID, to 
 2ACoind is not open / not responding.
 
 **Solution:**
- I'm not sure if you can experience this with 2acoin-service, I have seen it with walletgreen.
+ Check your network and ensure that the posrt 2acoin-service is operating on is open.
 
 ## NODE_BUSY / Node is busy
 >**Possible Alternative Error:**

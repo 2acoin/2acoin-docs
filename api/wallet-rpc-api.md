@@ -51,7 +51,7 @@ const service = new TurtleService({
   defaultMixin: false, // the default mixin to use for transactions, the default setting is false which means we don't have a default value
   defaultFee: 0.0005, // the default transaction fee for transactions
   defaultBlockCount: 1, // the default number of blocks when blockCount is required
-  decimalDivisor: 1000000, // Currency has many decimal places?
+  decimalDivisor: 10000000, // Currency has many decimal places?
   defaultFirstBlockIndex: 1, // the default first block index we will use when it is required
   defaultUnlockTime: 0, // the default unlockTime for transactions
   defaultFusionThreshold: 10000000, // the default fusionThreshold for fusion transactions
@@ -421,7 +421,7 @@ Argument          | Description          | Format
 mnemonicSeed      | Mnemonic seed        | string
 
 <aside class="notice">
-  <div>The first wallet address that is generated when the container is created is the deterministic address. Only one wallet from a multi-wallet container can be deterministic. If a non-deterministic address is given, the RPC response will be an error with the message: "Keys not deterministic."</div>
+  <div>The first wallet address that is generated when the container is created is the deterministic address. Only one address from a multi-wallet container can be deterministic. If a non-deterministic address is given, the RPC response will be an error with the message: "Keys not deterministic."</div>
 </aside>
 
 
@@ -467,8 +467,8 @@ if err != nil {
   "id":1,
   "jsonrpc":"2.0",
   "result":{
-    "blockCount":455956,
-    "knownBlockCount":455955,
+    "blockCount":255956,
+    "knownBlockCount":255955,
     "lastBlockHash":"8d6f8...",
     "peerCount":8
   }
@@ -586,7 +586,7 @@ print(response)
 ```go
 spendSecretKey := ""
 spendPublicKey := ""
-scanHeight := 850000
+scanHeight := 150000
 newAddress := true
 response, err := service.CreateAddress(spendSecretKey, spendPublicKey, scanHeight, newAddress)
 if err != nil {
@@ -729,7 +729,7 @@ if err != nil {
   "id":1,
   "jsonrpc":"2.0",
   "result":{
-    "availableBalance":10000,
+    "availableBalance":10000000,
     "lockedAmount":0
   }
 }
@@ -752,7 +752,7 @@ lockedAmount          | Locked amount of the specified address in shells      | 
 
 <aside class="notice">
   <div>If address is not specified, <code>getBalance()</code> returns a cumulative balance of all RPC Wallet's addresses.
-  Also note, balances are expressed in shells, so a balance of 10000 is equal to 100.00 guns.</div>
+  Also note, balances are expressed in ARMS, so a balance of 10000000000 is equal to 100.00 ARMS.</div>
 </aside>
 
 
@@ -834,7 +834,7 @@ blockHashes		      | Array of strings, where each element is a block hash	| arra
 ## getTransactionHashes
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactionHashes","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:17760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactionHashes","params":{"firstBlockIndex":40000,"blockCount":1000}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -852,8 +852,8 @@ service.getTransactionHashes({
 
 ```php
 <?php
-$blockCount = 100000;
-$firstBlockIndex = 400000;
+$blockCount = 1000;
+$firstBlockIndex = 40000;
 $blockHash = null;
 $addresses = null;
 $paymentId = null;
@@ -866,7 +866,7 @@ echo $response;
 ```
 
 ```python
-block_count = 100000
+block_count = 10000
 block_hash = '6c285...'
 addresses = []
 payment_id = ''
@@ -941,7 +941,7 @@ items	   | **Array of**                                        |	               
 ## getTransactions
 
 ```shell
-curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactions","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:17760/json_rpc
+curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactions","params":{"firstBlockIndex":40000,"blockCount":1000}}' http://localhost:17760/json_rpc
 ```
 
 ```javascript
@@ -959,8 +959,8 @@ service.getTransactions({
 
 ```php
 <?php
-$blockCount = 100000;
-$firstBlockIndex = 400000;
+$blockCount = 1000;
+$firstBlockIndex = 40000;
 $blockHash = null;
 $addresses = null;
 $paymentId = null;
@@ -973,7 +973,7 @@ echo $response;
 ```
 
 ```python
-block_count = 100000
+block_count = 1000
 block_hash = '6c285...'
 addresses = []
 payment_id = ''
@@ -1103,7 +1103,7 @@ curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getUnconfirmedT
 
 ```javascript
 service.getUnconfirmedTransactionHashes({
-  address: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+  address: 'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4vKpnUbrwfQ'
 }).then((result) => {
   // do something
 })
@@ -1275,7 +1275,7 @@ curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendTransaction
 ```javascript
 service.sendTransaction({
   transfers: [
-    service.newTransfer('gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ', 1000000)
+    service.newTransfer('gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNsavKpnUbrwfQ', 1000000)
   ],
   fee: 0.1
 }).then((result) => {
@@ -1366,9 +1366,9 @@ Argument        | Mandatory     | Description                                   
 --------------- | ------------- | ---------------------------------------------------------------------------------------- | -------
 addresses       | No            | Array of strings, where each string is an address to take the funds from                 | array
 transfers       | Yes           | Array of objects, address: (string address), amount: (int amount)                        | array
-fee             | Yes           | Transaction fee. Minimal fee in TurtleCoin network is 0.10 guns. As with other amounts use whole units, 1 guns = 100 units, so 0.1 guns = 10 units | int
+fee             | Yes           | Transaction fee. Minimal fee in 2aCoin network is 0.0005 ARMS. As with other amounts use whole units, 1 ARMS = 10000000 units, so 0.0005 ARMS = 50000 units | int
 unlockTime      | No            | The block height at which the transaction will be unlocked for spending.                 | int
-anonymity       | Yes           | Privacy (mixin) level from block 800,000 three (3)                                       | int
+anonymity       | Yes           | Privacy (mixin) level from block 70,000 three (3)                                        | int
 extra           | No            | String of variable length. Can contain A-Z, 0-9 characters.                              | string
 paymentId       | No            | Payment ID (64char hex string)                                                           | string
 changeAddress   | No            | Valid and existing address in this container.                                            | string
@@ -1394,7 +1394,7 @@ curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createDelayedTr
 ```javascript
 service.createDelayedTransaction({
   transfers: [
-    service.newTransfer('gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ', 1000000)
+    service.newTransfer('gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNsavKpnUbrwfQ', 1000000)
   ],
   fee: 0.1
 }).then((result) => {
@@ -1485,9 +1485,9 @@ Argument        | Mandatory     | Description                                   
 --------------- | ------------- | ---------------------------------------------------------------------------------------- | -------
 addresses       | No            | Array of strings, where each string is an address                                        | array
 transfers       | Yes           | Array of address (string), amount (int)                                                  | array
-fee             | Yes           | Transaction fee. Minimal fee in TurtleCoin network is 0.10 guns. This parameter should be specified in minimal available guns units. For example, if your fee is 0.10 guns, you should pass it as 10. | int
+fee             | Yes           | Transaction fee. Minimal fee in 2ACoin network is 0.0005 ARMS. This parameter should be specified in minimal available ARMS units. For example, if your fee is 0.0005 ARMS, you should pass it as 50000. | int
 unlockTime      | No	        | Height of the block until which transaction is going to be locked for spending.	       | int
-anonymity       | Yes           | Privacy (mixin) level from block 800,000 three (3)                                       | int
+anonymity       | Yes           | Privacy (mixin) level from block 70,000 three (3)                                        | int
 extra           | No            | String of variable length. Can contain A-Z, 0-9 characters.                              | string
 paymentId       | No            | Payment ID  (64char hex string)                                                          | string
 changeAddress   | No            | Valid and existing in this container address.                                            | string
@@ -1757,7 +1757,7 @@ use `estimateFusion` to check the outputs, available for the optimization.
 Argument            | Mandatory  | Description                                                                                          | Format
 ------------------- | ---------- | ---------------------------------------------------------------------------------------------------- | -------
 threshold           | Yes        | Value that determines which outputs will be optimized. Only the outputs, lesser than the threshold value, will be included into a fusion transaction. | int
-anonymity           | Yes        | Privacy (mixin) level from block 800,000 three (3)                                                 | int
+anonymity           | Yes        | Privacy (mixin) level from block 70,000 three (3)                                                    | int
 addresses           | No         | Array of strings, where each string is an address to take the funds from.	                        | array
 destinationAddress  | No         | An address that the optimized funds will be sent to. Valid and existing in this container address.	| string
 
@@ -1783,7 +1783,7 @@ curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"estimateFusion"
 service.estimateFusion({
   threshold: 100000000,
   addresses:[
-    'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
+    'gunsv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNsavKpnUbrwfQ'
   ]
 }).then((result) => {
   // do something
